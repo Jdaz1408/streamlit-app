@@ -16,10 +16,6 @@ from langchain.prompts.chat import (
 
 
 
-if api_key is None:
-    raise Exception('No se encontró la clave de API de OpenAI. Asegúrate de haberla configurado como variable de entorno.')
-
-
 #Apis and embeddings
   # platform.openai.com
 CONE_API_KEY = '25e36d52-6df5-458f-a4dc-95a1160fde67'
