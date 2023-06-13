@@ -16,7 +16,7 @@ from langchain.prompts.chat import (
 
 
 #Apis and embeddings
-OPENAI_API_KEY = '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'  # platform.openai.com
+OPENAI_API_KEY = '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'  # platform.openai.com
 CONE_API_KEY = '25e36d52-6df5-458f-a4dc-95a1160fde67'
 ENV = 'northamerica-northeast1-gcp'
 
