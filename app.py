@@ -1,7 +1,7 @@
 # Bring in deps
 import streamlit as st 
 import pinecone
-
+import os
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.vectorstores import Pinecone
@@ -15,8 +15,13 @@ from langchain.prompts.chat import (
 )
 
 
+
+if api_key is None:
+    raise Exception('No se encontró la clave de API de OpenAI. Asegúrate de haberla configurado como variable de entorno.')
+
+
 #Apis and embeddings
-OPENAI_API_KEY = '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'  # platform.openai.com
+  # platform.openai.com
 CONE_API_KEY = '25e36d52-6df5-458f-a4dc-95a1160fde67'
 ENV = 'northamerica-northeast1-gcp'
 
@@ -32,14 +37,14 @@ pinecone.init(
 )
 
 
-llm = ChatOpenAI(temperature=.9, openai_api_key=OPENAI_API_KEY, model_name="gpt-3.5-turbo")
 
 
 
 st.title('🦜🔗 Script Analizer - Long Summaries')
 namespace_options = ["Resilience Road", "Innovation & Leadership","Lindsay Hadley Podcast","The Jay davis Show"]
 name_space = st.selectbox("Pick a Client show", namespace_options)
-
+OPENAI_API_KEY = st.text_input('Input the your API')
+llm = ChatOpenAI(temperature=.9, openai_api_key=OPENAI_API_KEY, model_name="gpt-3.5-turbo")
 # Streamlit UI
 st.title("Upload an episode")
 loader=st.file_uploader("upload an episode script", type="txt")
