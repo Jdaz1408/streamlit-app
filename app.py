@@ -22,9 +22,7 @@ CONE_API_KEY = '25e36d52-6df5-458f-a4dc-95a1160fde67'
 ENV = 'northamerica-northeast1-gcp'
 
 
-embed = OpenAIEmbeddings(
-    openai_api_key=OPENAI_API_KEY
-)
+
 
 index_name = 'index-test'
 pinecone.init(
@@ -39,7 +37,13 @@ pinecone.init(
 st.title('🦜🔗 Script Analizer - Long Summaries')
 namespace_options = ["Resilience Road", "Innovation & Leadership","Lindsay Hadley Podcast","The Jay davis Show"]
 name_space = st.selectbox("Pick a Client show", namespace_options)
+
 OPENAI_API_KEY = st.text_input('Input the your API')
+
+embed = OpenAIEmbeddings(
+    openai_api_key=OPENAI_API_KEY
+)
+
 llm = ChatOpenAI(temperature=.9, openai_api_key=OPENAI_API_KEY, model_name="gpt-3.5-turbo")
 # Streamlit UI
 st.title("Upload an episode")
