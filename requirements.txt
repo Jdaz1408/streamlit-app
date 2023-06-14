@@ -145,7 +145,6 @@ yarl==1.9.2
 zipp==3.15.0
 beautifulsoup4==4.9.3
 markdownify==0.10.0
-requests==2.26.0
 
 
 
