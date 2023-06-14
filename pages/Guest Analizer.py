@@ -52,7 +52,7 @@ def load_LLM(openai_api_key):
 
 # A function that will be called only if the environment's openai_api_key isn't set
 
-OPENAI_API_KEY=st.secrets["OPENAI_API_KEY"]
+OPENAI_API_KEY=st.secrets["openai_key"]
 
 def split_text(user_information):
     # First we make our text splitter
